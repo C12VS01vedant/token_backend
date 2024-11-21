@@ -34,6 +34,14 @@ const userSchema = new mongoose.Schema(
       type: Date,
       default: null,
     },
+    tokens: [
+      {
+        tokenId: { type: String, required: true },
+        status: { type: String, enum: ["active", "inactive", "deleted"], default: "active" },
+        createdAt: { type: Date, default: Date.now },
+        updatedAt: { type: Date, default: Date.now },
+      },
+    ],
   },
   { timestamps: true }
 );
